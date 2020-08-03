@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lizequn.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="AWS ECR ec2 with Docker deployment">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Docker on AWS GPU Instance">
+<meta property="og:url" content="http://lizequn.github.io/2019/02/03/Machine-Learning-Docker-on-AwS-Gpu-Instance/index.html">
+<meta property="og:site_name" content="A Simple Note">
+<meta property="og:description" content="AWS ECR ec2 with Docker deployment">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-03T06:39:17.000Z">
+<meta property="article:modified_time" content="2020-07-31T16:41:50.721Z">
+<meta property="article:author" content="Zequn Li">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="ECR">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lizequn.github.io/2019/02/03/Machine-Learning-Docker-on-AwS-Gpu-Instance/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Machine Learning Docker on AWS GPU Instance | A Simple Note</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60890922-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-60890922-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">A Simple Note</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://lizequn.github.io/2019/02/03/Machine-Learning-Docker-on-AwS-Gpu-Instance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zequn Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="A Simple Note">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning Docker on AWS GPU Instance
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 03-02-2019 06:39:17" itemprop="dateCreated datePublished" datetime="2019-02-03T06:39:17Z">03-02-2019</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 31-07-2020 16:41:50" itemprop="dateModified" datetime="2020-07-31T16:41:50Z">31-07-2020</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="request-spot-instance-on-aws">Request Spot Instance on AWS</h1>
+<ul>
+<li><p>AMI: Select Deep Learning Base AMI (Ubuntu) Version 15 as the base OS and Switching CUDA version to 10.0 <!-- more --> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> rm /usr/<span class="built_in">local</span>/cuda</span><br><span class="line"><span class="variable">$sudo</span> ln -s /usr/<span class="built_in">local</span>/cuda-10.0 /usr/<span class="built_in">local</span>/cuda</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Instance Type: p2.xlarge</p></li>
+<li><p>Key pair name: Create a new Key Pair or importing existing public keys.</p></li>
+<li><p>EBS volumes: at last 32GB</p></li>
+<li><p>Security groups: Create new or import existing security groups</p>
+<ul>
+<li>all traffic for outbound</li>
+<li>all traffic of specific IP address for inbound</li>
+</ul></li>
+<li><p>Fleet request settings:</p>
+<ul>
+<li>add p2.xlarge, g3x.xlarge, g2.2xlarge</li>
+<li>set strategy to lowest price</li>
+</ul></li>
+<li><p>Additional request details:</p>
+<ul>
+<li>set max price: $0.40</li>
+<li>set a valid time range You will lost all your data when you shutdown the instance. <strong>Save the Volume or create Snapshot before terminating.</strong></li>
+</ul></li>
+</ul>
+<h1 id="build-docker-from-dockerfile">Build Docker from Dockerfile</h1>
+<ol type="1">
+<li><p>Get dockerfile from github <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span> https://github.com/lizequn/MachineLearning-docker.git</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Install AWS through pip</p>
+<p>The AwS is used for Aws ecr service which stores the docker image. <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Install pip</span></span><br><span class="line"><span class="variable">$sudo</span> apt install python-pip</span><br><span class="line"><span class="comment">#Install aws</span></span><br><span class="line"><span class="variable">$pip</span> install awscli --upgrade --user </span><br><span class="line"><span class="comment">#Check aws installation</span></span><br><span class="line"><span class="variable">$aws</span> --version</span><br><span class="line">``` </span><br><span class="line">If <span class="built_in">command</span> aws cannot be recognized, add it to path</span><br><span class="line">``` bash</span><br><span class="line"><span class="variable">$which</span> aws</span><br><span class="line">&lt;path-to-aws&gt;</span><br><span class="line"><span class="variable">$export</span> PATH=&lt;path-to-aws&gt;:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>Install Docker and Nvidia-docker on AwS Instance The installing script is in the github repository. Simply run <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> MachineLearning-docker</span><br><span class="line"><span class="variable">$sudo</span> bash ./docker_install.sh</span><br></pre></td></tr></table></figure></p></li>
+<li><p>Docker build <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> docker build -t &lt;tag&gt; [-f &lt;dockerfile&gt;] [&lt;path&gt;]</span><br><span class="line"><span class="comment">#Example:</span></span><br><span class="line"><span class="variable">$sudo</span> docker build -t ml:<span class="built_in">test</span> .</span><br></pre></td></tr></table></figure> <strong>Tag</strong> defines a unique tag for the docker you create e.g. ML:test. <strong>.</strong> refers to the file <strong>Dockerfile</strong>, your can also specific a file by <strong>-f</strong>.</p></li>
+<li><p>Save Docker to AWS ECR Building this docker from scratch takes roughly 50 mins, to reuse the previous built docker is necessary. AWS provides ECR service which can push and pull Docker images to instances. Here is the instruction for pushing the Docker image to ECR.</p>
+<ul>
+<li><p>Add Credentials for AWS service</p>
+<ul>
+<li><p>Create Credentials in IAM Create the access key with permission policy AmazonEC2ContainerRegistryFullAccess. The secret for access key only appears once, you need save it in local.</p></li>
+<li><p>Login in to EC2 instance <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$aws</span> configure</span><br><span class="line"><span class="comment">#access key</span></span><br><span class="line"><span class="comment">#access secret</span></span><br><span class="line"><span class="comment">#region code </span></span><br><span class="line"><span class="variable">$aws</span> ecr get-login --no-include-email &gt; login.sh</span><br><span class="line"><span class="variable">$sudo</span> bash ./login.sh</span><br><span class="line"><span class="variable">$sudo</span> rm login.sh</span><br></pre></td></tr></table></figure> The <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html" target="_blank" rel="noopener">region code</a> can be found in the link.</p></li>
+<li><p>Push docker image to ECR repository <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Identify the built docker images</span></span><br><span class="line"><span class="variable">$docker</span> images --filter reference=&lt;tag&gt;</span><br><span class="line"><span class="comment"># with aws installed, create new repository</span></span><br><span class="line"><span class="variable">$aws</span> ecr create-repository --repository-name &lt;repository name&gt;</span><br><span class="line"><span class="comment"># or find existing repository</span></span><br><span class="line"><span class="variable">$aws</span> ecr describe-repositories</span><br><span class="line">&gt;<span class="string">"repository"</span>: &#123;</span><br><span class="line">    <span class="string">"registryId"</span>: <span class="string">"id"</span>,</span><br><span class="line">    <span class="string">"repositoryName"</span>: <span class="string">"ml"</span>,</span><br><span class="line">    <span class="string">"repositoryArn"</span>: <span class="string">"arn:aws:ecr:eu-west-1:id:repository/ml"</span>,</span><br><span class="line">    <span class="string">"createdAt"</span>: 1549231384.0,</span><br><span class="line">    <span class="string">"repositoryUri"</span>: <span class="string">"id.dkr.ecr.eu-west-1.amazonaws.com/ml"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$sudo</span> docker tag &lt;image_tag&gt; &lt;repositoryUri&gt;[:&lt;tag&gt;]</span><br><span class="line"><span class="variable">$sudo</span> docker push &lt;repositoryUri&gt;[:&lt;tag&gt;]</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="pull-docker-from-aws-ecr">Pull Docker from AwS ECR</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#find the repository and url for docker image</span></span><br><span class="line"><span class="variable">$aws</span> ecr describe-repositories</span><br><span class="line"><span class="comment">#pull docker image</span></span><br><span class="line"><span class="variable">$sudo</span> docker pull &lt;repositoryUri&gt;[:&lt;tag&gt;]</span><br></pre></td></tr></table></figure>
+<h1 id="run-docker">Run Docker</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#find the image name</span></span><br><span class="line"><span class="variable">$docker</span> images</span><br><span class="line"><span class="comment">#Run the docker</span></span><br><span class="line"><span class="variable">$sudo</span> docker run --runtime=nvidia --rm -d -p 8888:8888 -p 6006:6006 --name &lt;name-of-docker&gt; -e PASSWORD=[&lt;password&gt;] -v /home/ubuntu/notebook:/notebook &lt;image-name&gt;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/AWS/" rel="tag"># AWS</a>
+              <a href="/tags/ECR/" rel="tag"># ECR</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/02/02/hexo-github-io/" rel="prev" title="hexo->github.io">
+      <i class="fa fa-chevron-left"></i> hexo->github.io
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/09/custom-hexo-next-theme/" rel="next" title="Custom Hexo Next Theme">
+      Custom Hexo Next Theme <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#request-spot-instance-on-aws"><span class="nav-number">1.</span> <span class="nav-text">Request Spot Instance on AWS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#build-docker-from-dockerfile"><span class="nav-number">2.</span> <span class="nav-text">Build Docker from Dockerfile</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pull-docker-from-aws-ecr"><span class="nav-number">3.</span> <span class="nav-text">Pull Docker from AwS ECR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#run-docker"><span class="nav-number">4.</span> <span class="nav-text">Run Docker</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zequn Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zequn Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'c028a0e10516b9eaa9be',
+      clientSecret: '702c3b148c646cae732dc7d6a44ae94d8bf42e22',
+      repo        : 'lizequn.github.io',
+      owner       : 'lizequn',
+      admin       : ['lizequn'],
+      id          : 'c0b122ab534fb207953d36157bfa61f1',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
+</body>
+</html>
