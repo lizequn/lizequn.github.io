@@ -1,0 +1,812 @@
+{
+  "characters": {
+
+    "1": {
+
+
+      "subfolder": "figure1/",
+	
+      "face": {
+        "filename": "face1.svg"
+	"width": 282,
+	"height": 282 
+      },
+
+      "figure": {
+        "filename": "figure1.svg"
+	"width": 300,
+	"height": 630
+      },
+
+
+      "eyes": [
+
+
+        {
+          "face_filename": "eyes_left1.svg",
+          "figure_filename": "eyes_left1.svg",
+          "x_offset_figure": 99.882,
+          "y_offset_figure": 93.403,
+          "x_offset_face": 92.882,
+          "y_offset_face": 93.403
+        },
+
+        {
+	  "face_filename": "eyes_right2.svg",
+          "figure_filename": "eyes_right2.svg",
+          "x_offset_figure": 97.92,
+          "y_offset_figure": 97.770,
+          "x_offset_face": 90.770,
+          "y_offset_face": 89.725
+        }
+
+        {
+	  "face_filename": "eyes_shocked3.svg",
+          "figure_filename": "eyes_shocked3.svg",
+          "x_offset_figure": 96.130,
+          "y_offset_figure": 87.751,
+          "x_offset_face": 89.130,
+          "y_offset_face": 87.751
+        }
+
+        {
+	  "face_filename": "eyes_sad4.svg",
+          "figure_filename": "eyes_sad4.svg",
+          "x_offset_figure": 98.760,
+          "y_offset_figure": 86.199,
+          "x_offset_face":91.760,
+          "y_offset_face": 86.199
+        }
+
+        {
+	  "face_filename": "eyes_thinking5.svg",
+          "figure_filename": "eyes_thinking5.svg",
+          "x_offset_figure": 97.440,
+          "y_offset_figure": 96.859,
+          "x_offset_face": 90.440,
+          "y_offset_face": 96.859
+        }
+
+        {
+	  "face_filename": "eyes_tired6.svg",
+          "figure_filename": "eyes_tired6.svg",
+          "x_offset_figure": 94.870,
+          "y_offset_figure": 87.070,
+          "x_offset_face": 87.870,
+          "y_offset_face": 87.070
+        }
+
+        {
+	  "face_filename": "eyes_neutral7.svg",
+	  "face_filename": "eyes_neutral7.svg",
+          "x_offset_figure": 97.580,
+          "y_offset_figure": 101.758,
+          "x_offset_face": 90.580,
+          "y_offset_face": 101.758
+        }
+
+      ],
+
+
+
+      "mouth": [
+
+        {
+	  "face_filename": "mouth_shocked1.svg",
+          "figure_filename": "mouth_shocked1.svg",
+          "x_offset_figure": 125.51,
+          "y_offset_figure": 165.4025,
+          "x_offset_face": 118.51,
+          "y_offset_face": 165.4025
+        },
+
+        {
+	  "face_filename": "mouth_sad2.svg",
+          "figure_filename": "mouth_sad2.svg",
+          "x_offset_figure": 125.71,
+          "y_offset_figure": 171.1147,
+          "x_offset_face": 118.71,
+          "y_offset_face": 171.1147 
+        }
+
+        {
+	  "face_filename": "mouth_happy3.svg",
+	  "face_filename": mouth_happy3.svg”,
+          "x_offset_figure": 126.970,
+          "y_offset_figure": 171.920,
+          "x_offset_face": 119.970,
+          "y_offset_face": 171.920
+        }
+
+        {
+	  "face_filename": "mouth_neutral4.svg",
+	  "face_filename": mouth_neutral4.svg”,
+          "x_offset_figure": 127.910,
+          "y_offset_figure": 172.035,
+          "x_offset_face": 120.910,
+          "y_offset_face": 172.035
+        }
+
+      ]
+
+    },
+
+
+
+
+
+
+
+
+    "2": {
+
+      "subfolder": "figure2/",
+
+      "face": {
+        "filename": "face2.svg"
+	"width": 282,
+	"height": 282
+      },
+
+
+      "figure": {
+        "filename": "figure2.svg"
+	"width": 291,
+	"height": 673
+      },
+
+
+      "eyes": [
+
+        {
+          "face_filename": "eyes_left1.svg",
+          "figure_filename": "eyes_left1.svg",
+          "x_offset_figure": 121.843,
+          "y_offset_figure": 97.6701,
+          "x_offset_face": 96.843,
+          "y_offset_face": 97.6701  
+        },
+
+        {
+	  "face_filename": "eyes_right2.svg",
+          "figure_filename": "eyes_right2.svg",
+          "x_offset_figure": 121.97,
+          "y_offset_figure":97.8083,
+          "x_offset_face": 97,
+          "y_offset_face":97.8083 
+        }
+
+        {
+	  "face_filename": "eyes_shocked3.svg",
+          "figure_filename": "eyes_shocked3.svg",
+          "x_offset_figure": 119.986,
+          "y_offset_figure": 103.307,
+          "x_offset_face": 94.986,
+          "y_offset_face": 103.307
+        }
+
+        {
+	  "face_filename": "eyes_sad4.svg",
+          "figure_filename": "eyes_sad4.svg",
+          "x_offset_figure": 125.440,
+          "y_offset_figure": 90.630,
+          "x_offset_face": 100.440,
+          "y_offset_face": 90.630
+        }
+
+        {
+	  "face_filename": "eyes_thinking5.svg",
+          "figure_filename": "eyes_thinking5.svg",
+          "x_offset_figure": 122.937,
+          "y_offset_figure": 103.271,
+          "x_offset_face": 97.937,
+          "y_offset_face": 103.271
+        }
+
+        {
+	  "face_filename": "eyes_tired6.svg",
+          "figure_filename": "eyes_tired6.svg",
+          "x_offset_figure": 119.320,
+          "y_offset_figure": 95.030,
+          "x_offset_face": 94.320,
+          "y_offset_face": 95.030
+        }
+
+        {
+	  "face_filename": "eyes_neutral7.svg",
+	  "face_filename": "eyes_neutral7.svg",
+          "x_offset_figure": 120.470,
+          "y_offset_figure": 104.540,
+          "x_offset_face": 95.470,
+          "y_offset_face": 104.540
+        }
+
+      ],
+
+
+      "mouth": [
+        {
+	  "face_filename": "mouth_shocked1.svg",
+          "figure_filename": "mouth_shocked1.svg",
+          "x_offset_figure": 145,
+          "y_offset_figure": 177.4796,
+          "x_offset_face": 120,
+          "y_offset_face": 177.4796
+        },
+
+        {
+	  "face_filename": "mouth_sad2.svg",
+          "figure_filename": "mouth_sad2.svg",
+          "x_offset_figure":145.47,
+          "y_offset_figure": 179.5519,
+          "x_offset_face": 120.47,
+          "y_offset_face": 179.5519 
+        }
+
+        {
+	  "face_filename": "mouth_happy3.svg",
+	  "face_filename": mouth_happy3.svg”,
+          "x_offset_figure": 144.480,
+          "y_offset_figure": 177.970,
+          "x_offset_face": 119.480,
+          "y_offset_face": 177.970
+        }
+
+        {
+	  "face_filename": "mouth_neutral4.svg",
+	  "face_filename": mouth_neutral4.svg”,
+          "x_offset_figure": 149.500,
+          "y_offset_figure": 180.780,
+          "x_offset_face": 124.500,
+          "y_offset_face": 180.780
+        }
+
+
+
+      ]
+    }
+
+
+
+
+
+
+    "3": {
+
+      "subfolder": "figure3/",
+
+      "face": {
+        "filename": "face3.svg"
+	"width" : 282,
+	"height" : 282
+      },
+
+
+      "figure": {
+        "filename": "figure3.svg"
+	"width" : 233,
+	"height" : 650
+      },
+
+
+      "eyes": [
+
+        {
+          "face_filename": "eyes_left1.svg",
+          "figure_filename": "eyes_left1.svg",
+          "x_offset_figure": 60.882,
+          "y_offset_figure": 100.403,
+          "x_offset_face": 96.041,
+          "y_offset_face": 122.478  
+        },
+
+        {
+	  "face_filename": "eyes_right2.svg",
+          "figure_filename": "eyes_right2.svg",
+          "x_offset_figure": 58.840,
+          "y_offset_figure":100.403 ,
+          "x_offset_face": 88.840,
+          "y_offset_face":100.403
+        }
+
+        {
+	  "face_filename": "eyes_shocked3.svg",
+          "figure_filename": "eyes_shocked3.svg",
+          "x_offset_figure": 61.970,
+          "y_offset_figure": 102.116,
+          "x_offset_face": 91.970,
+          "y_offset_face": 102.116
+        }
+
+        {
+	  "face_filename": "eyes_sad4.svg",
+          "figure_filename": "eyes_sad4.svg",
+          "x_offset_figure": 63.000,
+          "y_offset_figure": 90.730,
+          "x_offset_face": 93.000,
+          "y_offset_face": 90.730
+        }
+
+        {
+	  "face_filename": "eyes_thinking5.svg",
+          "figure_filename": "eyes_thinking5.svg",
+          "x_offset_figure": 62.960,
+          "y_offset_figure": 104.083,
+          "x_offset_face": 92.960,
+          "y_offset_face": 104.083
+        }
+
+        {
+	  "face_filename": "eyes_tired6.svg",
+          "figure_filename": "eyes_tired6.svg",
+          "x_offset_figure": 59.000,
+          "y_offset_figure": 95.760,
+          "x_offset_face": 89.000,
+          "y_offset_face": 95.760
+        }
+
+        {
+	  "face_filename": "eyes_neutral7.svg",
+	  "face_filename": "eyes_neutral7.svg",
+          "x_offset_figure": 60.080,
+          "y_offset_figure": 104.779,
+          "x_offset_face": ?
+          "y_offset_face": ?
+        }
+
+      ],
+
+
+      "mouth": [
+        {
+	  "face_filename": "mouth_shocked1.svg",
+          "figure_filename": "mouth_shocked1.svg",
+          "x_offset_figure": 87.360,
+          "y_offset_figure": 172.034 ,
+          "x_offset_face": 117.360 ,
+          "y_offset_face": 172.034
+        },
+
+        {
+	  "face_filename": "mouth_sad2.svg",
+          "figure_filename": "mouth_sad2.svg",
+          "x_offset_figure":86.210,
+          "y_offset_figure": 175.635,
+          "x_offset_face": 116.210,
+          "y_offset_face": 175.635 
+        }
+
+        {
+	  "face_filename": "mouth_happy3.svg",
+	  "face_filename": mouth_happy3.svg”,
+          "x_offset_figure": 79.750,
+          "y_offset_figure": 173.341,
+          "x_offset_face": 109.720,
+          "y_offset_face": 173.351
+        }
+
+        {
+	  "face_filename": "mouth_neutral4.svg",
+	  "face_filename": mouth_neutral4.svg”,
+          "x_offset_figure": 87.880,
+          "y_offset_figure": 177.227,
+          "x_offset_face": 117.880,
+          "y_offset_face": 177.227
+        }
+
+
+
+      ]
+    }
+
+
+    "4": {
+
+      "subfolder": "figure4/",
+
+      "face": {
+        "filename": "face4.svg"
+	"width" : 282,
+	"height" : 282
+      },
+
+
+      "figure": {
+        "filename": "figure4.svg"
+	"width" : 285,
+	"height" : 624
+      },
+
+
+      "eyes": [
+
+        {
+          "face_filename": "eyes_left1.svg",
+          "figure_filename": "eyes_left1.svg",
+          "x_offset_figure": 118.202,
+          "y_offset_figure": 99.610,
+          "x_offset_face": 103.202,
+          "y_offset_face": 109.610  
+        },
+
+        {
+	  "face_filename": "eyes_right2.svg",
+          "figure_filename": "eyes_right2.svg",
+          "x_offset_figure": 117.390,
+          "y_offset_figure": 99.610,
+          "x_offset_face": 102.390,
+          "y_offset_face": 109.610 
+        }
+
+        {
+	  "face_filename": "eyes_shocked3.svg",
+          "figure_filename": "eyes_shocked3.svg",
+          "x_offset_figure": 112.430,
+          "y_offset_figure": 93.404,
+          "x_offset_face": 97.430,
+          "y_offset_face": 103.404
+        }
+
+        {
+	  "face_filename": "eyes_sad4.svg",
+          "figure_filename": "eyes_sad4.svg",
+          "x_offset_figure": 114.770,
+          "y_offset_figure": 91.188,
+          "x_offset_face": 99.770,
+          "y_offset_face": 101.188
+        }
+
+        {
+	  "face_filename": "eyes_thinking5.svg",
+          "figure_filename": "eyes_thinking5.svg",
+          "x_offset_figure": 115.250,
+          "y_offset_figure": 99.922,
+          "x_offset_face": 100.300,
+          "y_offset_face": 109.922
+        }
+
+        {
+	  "face_filename": "eyes_tired6.svg",
+          "figure_filename": "eyes_tired6.svg",
+          "x_offset_figure": 114.320,
+          "y_offset_figure": 94.210,
+          "x_offset_face": 99.300,
+          "y_offset_face": 104.210
+        }
+
+        {
+	  "face_filename": "eyes_neutral7.svg",
+	  "face_filename": "eyes_neutral7.svg",
+          "x_offset_figure": 113.400,
+          "y_offset_figure": 100.830,
+          "x_offset_face": 98.400
+          "y_offset_face": 110.830
+        }
+
+      ],
+
+
+      "mouth": [
+        {
+	  "face_filename": "mouth_shocked1.svg",
+          "figure_filename": "mouth_shocked1.svg",
+          "x_offset_figure": 134.620,
+          "y_offset_figure": 163.840,
+          "x_offset_face": 119.620,
+          "y_offset_face": 173.840
+        },
+
+        {
+	  "face_filename": "mouth_sad2.svg",
+          "figure_filename": "mouth_sad2.svg",
+          "x_offset_figure": 135.100,
+          "y_offset_figure": 165.497,
+          "x_offset_face": 120.100,
+          "y_offset_face": 175.497
+        }
+
+        {
+	  "face_filename": "mouth_happy3.svg",
+	  "face_filename": mouth_happy3.svg”,
+          "x_offset_figure": 132.000,
+          "y_offset_figure": 166.725,
+          "x_offset_face": 117.000
+          "y_offset_face": 176.725
+        }
+
+        {
+	  "face_filename": "mouth_neutral4.svg",
+	  "face_filename": mouth_neutral4.svg”,
+          "x_offset_figure": 136.350,
+          "y_offset_figure": 166.497,
+          "x_offset_face": 121.350,
+          "y_offset_face": 176.497
+        }
+
+
+
+      ]
+    }
+
+
+
+
+    "5": {
+
+      "subfolder": "figure5/",
+
+      "face": {
+        "filename": "face5.svg"
+	"width": 282,
+	"height": 282
+      },
+
+
+      "figure": {
+        "filename": "figure5.svg"
+	"width": 245,
+	"height": 730
+      },
+
+
+      "eyes": [
+
+        {
+          "face_filename": "eyes_left1.svg",
+          "figure_filename": "eyes_left1.svg",
+          "x_offset_figure": 83.227,
+          "y_offset_figure": 87.577,
+          "x_offset_face": 93.227,
+          "y_offset_face": 89.577
+        },
+
+        {
+	  "face_filename": "eyes_right2.svg",
+          "figure_filename": "eyes_right2.svg",
+          "x_offset_figure": 79.400,
+          "y_offset_figure": 88.577,
+          "x_offset_face": 89.400,
+          "y_offset_face": 90.577
+        }
+
+        {
+	  "face_filename": "eyes_shocked3.svg",
+          "figure_filename": "eyes_shocked3.svg",
+          "x_offset_figure": 82.020,
+          "y_offset_figure": 82.323,
+          "x_offset_face": 92.020,
+          "y_offset_face": 84.323
+        }
+
+        {
+	  "face_filename": "eyes_sad4.svg",
+          "figure_filename": "eyes_sad4.svg",
+          "x_offset_figure": 85.000,
+          "y_offset_figure": 83.229,
+          "x_offset_face": 95.000,
+          "y_offset_face": 85.229,
+        }
+
+        {
+	  "face_filename": "eyes_thinking5.svg",
+          "figure_filename": "eyes_thinking5.svg",
+          "x_offset_figure": 83.910,
+          "y_offset_figure": 91.773,
+          "x_offset_face": 93.910,
+          "y_offset_face": 93.773
+        }
+
+        {
+	  "face_filename": "eyes_tired6.svg",
+          "figure_filename": "eyes_tired6.svg",
+          "x_offset_figure": 83.130,
+          "y_offset_figure": 91.440,
+          "x_offset_face": 93.130,
+          "y_offset_face": 93.440
+        }
+
+        {
+	  "face_filename": "eyes_neutral7.svg",
+	  "face_filename": "eyes_neutral7.svg",
+          "x_offset_figure": 77.000,
+          "y_offset_figure": 90.498,
+          "x_offset_face": 87.000,
+          "y_offset_face": 92.498
+        }
+
+      ],
+
+
+      "mouth": [
+        {
+	  "face_filename": "mouth_shocked1.svg",
+          "figure_filename": "mouth_shocked1.svg",
+          "x_offset_figure": 109.540,
+          "y_offset_figure": 171.980,
+          "x_offset_face": 119.540,
+          "y_offset_face": 173.980
+        },
+
+        {
+	  "face_filename": "mouth_sad2.svg",
+          "figure_filename": "mouth_sad2.svg",
+          "x_offset_figure": 108.250,
+          "y_offset_figure": 172.335,
+          "x_offset_face": 118.250,
+          "y_offset_face": 174.335
+        }
+
+        {
+	  "face_filename": "mouth_happy3.svg",
+	  "face_filename": mouth_happy3.svg”,
+          "x_offset_figure": 105.060,
+          "y_offset_figure": 173.000,
+          "x_offset_face": 115.060,
+          "y_offset_face": 175.000
+        }
+
+        {
+	  "face_filename": "mouth_neutral4.svg",
+	  "face_filename": mouth_neutral4.svg”,
+          "x_offset_figure": 109.670,
+          "y_offset_figure": 171.983,
+          "x_offset_face": 119.670,
+          "y_offset_face": 173.983
+        }
+
+
+
+      ]
+    }
+
+
+
+    "6": {
+
+      "subfolder": "figure6/",
+
+      "face": {
+        "filename": "face6.svg"
+	"width": 282,
+	"height": 282
+      },
+
+
+      "figure": {
+        "filename": "figure6.svg"
+	"width" : 340,
+	"height" : 665
+      },
+
+
+      "eyes": [
+
+        {
+          "face_filename": "eyes_left1.svg",
+          "figure_filename": "eyes_left1.svg",
+          "x_offset_figure": 137.555,
+          "y_offset_figure": 84.825,
+          "x_offset_face": 97.525,
+          "y_offset_face": 92.825
+        },
+
+        {
+	  "face_filename": "eyes_right2.svg",
+          "figure_filename": "eyes_right2.svg",
+          "x_offset_figure": 131.690,
+          "y_offset_figure": 81.087,
+          "x_offset_face": 91.690,
+          "y_offset_face": 89.087
+        }
+
+        {
+	  "face_filename": "eyes_shocked3.svg",
+          "figure_filename": "eyes_shocked3.svg",
+          "x_offset_figure": 136.230,
+          "y_offset_figure": 85.873,
+          "x_offset_face": 96.230,
+          "y_offset_face": 93.873
+        }
+
+        {
+	  "face_filename": "eyes_sad4.svg",
+          "figure_filename": "eyes_sad4.svg",
+          "x_offset_figure": 137.680,
+          "y_offset_figure": 74.460,
+          "x_offset_face": 97.680,
+          "y_offset_face": 82.460
+        }
+
+        {
+	  "face_filename": "eyes_thinking5.svg",
+          "figure_filename": "eyes_thinking5.svg",
+          "x_offset_figure": 140.440,
+          "y_offset_figure": 91.482,
+          "x_offset_face": 100.440,
+          "y_offset_face": 99.482
+        }
+
+        {
+	  "face_filename": "eyes_tired6.svg",
+          "figure_filename": "eyes_tired6.svg",
+          "x_offset_figure": 128.320,
+          "y_offset_figure": 81.710,
+          "x_offset_face": 88.320,
+          "y_offset_face": 89.710
+        }
+
+        {
+	  "face_filename": "eyes_neutral7.svg",
+	  "face_filename": "eyes_neutral7.svg",
+          "x_offset_figure": 129.600,
+          "y_offset_figure": 87.700,
+          "x_offset_face": 89.600,
+          "y_offset_face": 95.700
+        }
+
+      ],
+
+
+      "mouth": [
+        {
+	  "face_filename": "mouth_shocked1.svg",
+          "figure_filename": "mouth_shocked1.svg",
+          "x_offset_figure": 156.660,
+          "y_offset_figure": 161.249,
+          "x_offset_face": 116.660,
+          "y_offset_face": 169.249
+        },
+
+        {
+	  "face_filename": "mouth_sad2.svg",
+          "figure_filename": "mouth_sad2.svg",
+          "x_offset_figure": 157.570,
+          "y_offset_figure": 164.290,
+          "x_offset_face": 117.570,
+          "y_offset_face": 172.290
+        }
+
+        {
+	  "face_filename": "mouth_happy3.svg",
+	  "face_filename": mouth_happy3.svg”,
+          "x_offset_figure": 151.690,
+          "y_offset_figure": 164.410,
+          "x_offset_face": 111.690,
+          "y_offset_face": 172.410
+        }
+
+        {
+	  "face_filename": "mouth_neutral4.svg",
+	  "face_filename": mouth_neutral4.svg”,
+          "x_offset_figure": 157.670,
+          "y_offset_figure": 164.330,
+          "x_offset_face": 117.670
+          "y_offset_face": 172.330
+        }
+
+
+
+      ]
+    }
+
+
+
+  },
+
+
+
+
+  "background": {
+    "1": {
+      "filename": "bg1.png",
+      "x_offset_char": 100,
+      "y_offset_char": 100
+    },
+    "2": {
+      "filename": "bg2.png",
+      "x_offset_char": 100,
+      "y_offset_char": 100
+    }
+  },
+  "folder": "img_2/"
+}

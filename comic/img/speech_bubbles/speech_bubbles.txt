@@ -1,0 +1,45 @@
+"speech_bubbles":{
+
+  "subfolder": "speech_bubbles/",
+
+
+  "long":{
+
+	"width" : 972.415
+	"height" : 328.747
+
+    "filename_long": "long.svg",
+    "x_offset_background": 135.000,
+    "y_offset_background": 685.000
+  },
+
+  "meduim":{
+
+	"width" : 450.541
+	"height" : 256.027
+
+    "filename_meduim": "meduim.svg",
+    "x_offset_background": 83.000,
+    "y_offset_background": 81.000
+  },
+
+  "small":{
+
+	"width" : 308.372
+	"height" : 197.986
+
+    "filename_small": "small.svg",
+    "x_offset_background": 255.000,
+    "y_offset_background": 462.000 
+  },
+
+  "large":{
+
+	"width" : 475.329
+	"height" : 440.490
+
+    "filename_large": "large.svg",
+    "x_offset_background": 625.000,
+    "y_offset_background": 40.000 
+  }
+},

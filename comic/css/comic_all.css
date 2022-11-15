@@ -1,0 +1,840 @@
+
+ /* -- Tim CSS Start -- */
+
+/* import google font */
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+
+
+
+/* global style */
+:root {
+
+
+
+
+
+--Black: #000000; 
+
+--White: #FFFFFF; 
+
+--White_hoover: #e9e9e9;
+
+--Blue: #2A4889;
+
+--Twitter_Blue: #1DA1F2;
+
+--Facebook_Blue: #3b5998;
+
+--Instagrame_Blue: #3F729B;
+
+--Youtube_Red: #FF0000;
+
+--Dark_Gray: #202020; 
+
+--Light_Gray: #d7cfcf; 
+
+--Purple_6: #4E1846;
+
+--Purple_5:  #32184E; 
+
+--Purple_4: #9765CF;  
+
+--Purple_3: #be9fe1;  
+
+--Purple_2: #E5D9F3; 
+
+--Purple_1: #F1F1F6;
+
+--Teal_2: #0E9AA7; 
+
+--Teal_1: #3DA4AB;
+
+--Teal_3: #71e5fe;
+
+--Yellow: #F6CD61; 
+
+--Red_1: #EF5445; 
+
+--Red_2: #c60032;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  background:var(--White);
+  overflow-x: hidden;
+}
+
+h1{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+h2{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+h3{
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+
+h1.amatic {
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: 5px;
+}
+
+
+p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: lighter;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+li{
+  font-size: 15px;
+}
+
+.text-black{
+  color: var(--Dark_Gray) !important;
+}
+
+
+a{
+  color: var(--Black) !important;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--Light_Gray) !important;
+}
+
+
+.dropdown-content a{
+  color: var(--Dark_Gray) !important;
+}
+
+.dropdown a{
+  color: var(--Dark_Gray) !important;
+}
+
+
+
+
+
+/* Justify */
+.container-special{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+
+
+.centre {
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+
+
+
+
+
+
+
+/* navbar style */
+.navbar{
+  background: var(--White);
+  width: 100%;
+}
+
+.navbar a{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1px;
+  float: center;
+  color: var(--Dark_Gray);
+  text-align: center;
+}
+
+
+.nav-active {
+  border-radius: 24px;
+  background-color: var(--Purple_4);
+}
+
+.navbar-toggler {
+  outline: none !important;
+  border: none;
+  width: 60px;
+  height:60px;
+  border-radius: 150px;
+  background:var(--Purple_1);
+}
+
+.navbar-nav>li:hover{
+  border-radius: 24px;
+  background-color: var(--Purple_1);
+}
+
+.navbar-nav>ul>li:hover{
+  border-radius: 24px;
+  background-color: var(--Purple_1);
+}
+
+.text-border{
+  border-radius: 24px;
+  background-color: var(--Purple_5);
+  min-width: 170px;
+}
+
+
+.container_1-1 {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: var(--Purple_3);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 20px 50px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.dropdown-content a:hover {
+  border-radius: 24px;
+  background-color: var(--Purple_1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+/* Title Underline style */
+
+.title-underline {
+  background:var(--White);
+  position: relative;
+  margin-top: 40px;
+  height: 0.4rem;
+  width: 30%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-125%, -300%);
+  border-radius: 24px;
+}
+
+.title-underline-center{
+  background:var(--Dark_Gray);
+  position: relative;
+  height: 0.4rem;
+  width: 15%;
+  min-width: 90px;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 24px;
+}
+
+.line {
+  background:var(--Dark_Gray);
+  position: relative;
+  margin-top: 40px;
+  height: 0.1rem;
+  width: 90%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -20%);
+  border-radius: 24px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border-top: 1px solid #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* button */
+
+.btn-center{
+  margin: 0;
+  position: relative;
+  top: auto;
+  left: 34%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, 500%);   
+}
+
+.button {
+  border-radius: 25px;
+  background-color: var(--Dark_Gray);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  display: table-cell;
+  vertical-align: center;
+  font-size: 15px;
+  width: 150px;
+  height: 60px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: var(--Light_Gray);
+  transition: all 0.30s;
+}
+
+
+
+
+
+
+
+
+/* Custom Backgrounds */
+.bg-custom-1{
+  background:var(--Purple_1);
+
+}
+
+.bg-custom-2{
+  background:var(--Purple_2);
+
+ 
+}
+
+.bg-custom-3{
+  background:var(--Purple_3);
+
+}
+
+.bg-custom-4{
+  background:var(--Purple_4);
+}
+
+.bg-custom-5{
+  background:var(--Purple_5);
+
+
+}
+.bg-custom-6{
+  background:var(--Red_1);
+}
+
+.bg-custom-7{
+  background:var(--Red_2);
+}
+
+.bg-custom-8{
+  background:var(--Blue);
+}
+
+.bg-custom-9{
+  background:var(--Yellow);
+}
+
+.bg-custom-10{
+  background:var(--Teal_1);
+}
+
+.bg-custom-11{
+  background:var(--Teal_2);
+}
+
+.bg-custom-12{
+  background:var(--Dark_Gray);
+}
+
+.bg-custom-13{
+  background:var(--Light_Gray);
+}
+
+.bg-custom-14{
+  background:var(--White);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*https://getbootstrap.com/docs/4.0/components/card*/
+/* flexbox style for responsive screen sizes */
+/*https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
+
+
+.flex-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.flex-wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main {
+  text-align: center;
+}
+
+
+.aside-1 {
+  /* background: var(--Purple_1); */
+  justify-content: space-around;
+ }
+ 
+ .aside-2 {
+  /* background: var(--Purple_1); */
+   justify-content: space-around;
+ }
+
+ .aside-3 {
+  /* background: var(--Purple_3); */
+   justify-content: space-around;
+ }
+
+ .aside-4 {
+  /* background: var(--Purple_5); */
+   justify-content: space-around;
+ }
+
+
+/* end of flex wrapper */
+
+
+
+
+
+
+
+
+
+
+
+/*logos / carousel style*/
+
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-250px * 7));
+            transform: translateX(calc(-250px * 7));
+  }
+}
+
+@keyframes scroll {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(calc(-250px * 7));
+            transform: translateX(calc(-250px * 7));
+  }
+}
+.slider {
+  background: white;
+  height: 200px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 960px;
+}
+.slider::before, .slider::after {
+
+  content: "";
+  height: 200px;
+  position: absolute;
+  width: 100px;
+  z-index: 2;
+}
+.slider::asfter {
+  right: 0;
+  top: 0;
+  -webkit-transform: rotateZ(180deg);
+          transform: rotateZ(180deg);
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider .slide-track {
+  -webkit-animation: scroll 40s linear infinite;
+          animation: scroll 40s linear infinite;
+  display: -webkit-box;
+  display: flex;
+  width: calc(250px * 14);
+}
+.slider .slide {
+  height: 200px;
+  width: 400px;
+}
+
+div.slide img{
+padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer*/
+.footer {
+  background: var(--Purple_2);
+}
+
+.logo-footer {
+width: 80%;
+max-width: 200px;
+}
+
+li.footer-links{
+  background:var(--Purple_5);
+  color:  #F0F0F0;
+}
+
+a.footer-links:hover{
+opacity: 50%;
+}
+
+
+ /* -- Tim CSS End -- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* -- Yichen CSS start -- */
+
+
+ /* -- Tim notes - Not sure we need this anymore  -- */
+
+    /* .bgTextBox {
+      background-color: white;
+      padding: 10px;
+    }
+
+    .bgDemo {
+      border-style: solid;
+      border-width: 0.5px;
+      padding: 10px;
+    }
+
+    .highlight pre {
+      white-space: pre-wrap;
+    }
+
+    .nav-item {
+      cursor: pointer;
+    } */
+
+ /* -- Tim notes - Not sure we need this anymore  -- */
+
+
+
+
+
+
+
+    /* -- For hidden radio buttons in selecting character and background -- */
+    /* HIDE RADIO */
+    [type=radio] { 
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    /* IMAGE STYLES */
+    [type=radio] + img {
+      cursor: pointer;
+    }
+    /* CHECKED STYLES */
+    [type=radio]:checked + img {
+      outline: 1px solid var(--Dark_Gray);
+      border-radius: 50%;
+    }
+    /* ------- */
+
+
+
+    /* Main div for settings (choose bgs, chars and input dialog) */
+    div#setting_panel {
+      position:relative;
+      float: right;
+      width: 50%;
+      right: 0%;
+      top:20%;
+    }
+
+
+
+
+    /* Div for choosing backgrounds and characters */
+    div#char_bg_panel {
+      /* border: 3px solid #1826e7; */
+    }
+
+     /* Div for dialog */
+    div#dialog_panel {
+    height: 100%;
+    /* border: 3px solid #e718d6; */
+    }
+
+
+
+
+
+    /* ---- Styles for the expression selection section ----*/
+
+    /* Main Div for the expression selection */
+    div#overlay {
+      position: fixed;
+      /* position: relative; */
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* background-color: rgba(0,0,0,0.5); */
+      z-index: 2;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.4);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(10px);
+    }
+
+    /* The canvas that draws expressions */
+    .face_canvas{
+      position:absolute;
+      width: 20%;
+      /* padding-top: 20%; */
+      /* position: relative; */
+      left: 40%;
+      top: 30%;
+
+      /* display: none; */
+
+    }
+
+    /* size of the choices (bg and char) */
+    .choice_img{
+      height: 120px;
+      width: 120px;
+    }
+
+    .choice_canvas{
+      height: 100px;
+      width: 100px;
+      padding:0px 5px;
+      /* border: 3px solid #f10ce6; */
+    }
+
+    /* Div for prev eye and mouth */
+    div#face_choicer_left{
+      position:absolute;
+      /* float:bottom; */
+      padding-left: 10%;
+      height: 20%;
+      left: 30%;
+      top: 30%;
+      /* border: 3px solid #2e0cf1; */
+    }
+
+    /* Div for next eye and mouth */
+    div#face_choicer_right{
+      position:absolute;
+      /* float:bottom; */
+      width: 10%;
+      height: 20%;
+      left: 60%;
+      top: 30%;
+      /* border: 3px solid #f10ce6; */
+    }
+
+    /*Not using this div at the moment  */
+    div#face_choicer_footer{
+      position:absolute;
+      /* float:bottom; */
+      width: 20%;
+      height: 10%;
+      left: 40%;
+      top: 80%;
+      border: 3px solid #e71818;
+    }
+
+
+    /* ---- Styles for the comic section ----*/
+
+    /* Main Div for the comic section */
+    div#canvas_panel{
+      width: 50%;
+      height: 40%;
+      /* border: 3px solid #773258; */
+    }
+
+    /* Comic canvas */
+     .canvas{
+      width: 90%;
+      height: 90%;
+      /* border: 3px solid #18e756; */
+
+    } 
+
+    /* Div for the gallery */  
+    div#gallery{
+      /* border: 3px solid #18e7e7; */
+    }
+
+    .recommend_panel{
+      margin-left: 15px;
+    }
+    .recommend_panel a{
+      text-decoration: underline;
+      font-size: larger;
+    }
+
+ /* -- Yichen CSS End -- */
+
+
+
+
