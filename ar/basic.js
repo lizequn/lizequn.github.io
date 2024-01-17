@@ -5,13 +5,14 @@ window.onload = () => {
 
     el.addEventListener("gps-camera-update-position", async(e) => {
         if(!downloaded) {
-            const west = e.detail.position.longitude - 0.05,
-                  east = e.detail.position.longitude + 0.05,
-                  south = e.detail.position.latitude - 0.05;
-                  north = e.detail.position.latitude + 0.05;
+            const west = e.detail.position.longitude - 0.01,
+                  east = e.detail.position.longitude + 0.01,
+                  south = e.detail.position.latitude - 0.01;
+                  north = e.detail.position.latitude + 0.01;
             console.log(`${west} ${south} ${east} ${north}`);
             const response = await fetch(`https://hikar.org/webapp/map?bbox=${west},${south},${east},${north}&layers=poi&outProj=4326`);
             const pois = await response.json();
+            console.log(pois)
             pois.features.forEach ( feature => {
                 const compoundEntity = document.createElement("a-entity");
                 compoundEntity.setAttribute('gps-new-entity-place', {
