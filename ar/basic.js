@@ -1,5 +1,5 @@
 function getObjByType(featureType){
-    if(featureType==='cafe'){
+    if(featureType=="cafe"){
         return "./assets/model/coffee/scene.glt'"
     }else{
         return "None"
@@ -61,7 +61,7 @@ window.onload = () => {
                         y: textScale,
                         z: textScale
                     });
-                    text.setAttribute("value", feature.properties.name);
+                    text.setAttribute("value", feature.properties.name.replace(/ *\([^)]*\) */g, ""));
                     text.setAttribute("align", "center");
                     compoundEntity.appendChild(object);
                     compoundEntity.appendChild(text);
