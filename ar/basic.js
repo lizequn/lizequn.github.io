@@ -1,6 +1,6 @@
 function getObjByType(featureType){
     if(featureType=="cafe"){
-        return "./assets/model/coffee/scene.glt'"
+        return "./assets/model/coffee/scene.gltf'"
     }else{
         return "None"
     }
