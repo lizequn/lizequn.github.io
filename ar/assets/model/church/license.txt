@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stone church in Karuna, Finland
+* source:	https://sketchfab.com/3d-models/stone-church-in-karuna-finland-d79d30e39182482f8655b01ea77879d5
+* author:	Lassi Kaukonen (https://sketchfab.com/thesidekick)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stone church in Karuna, Finland" (https://sketchfab.com/3d-models/stone-church-in-karuna-finland-d79d30e39182482f8655b01ea77879d5) by Lassi Kaukonen (https://sketchfab.com/thesidekick) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

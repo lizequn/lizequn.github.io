@@ -44,12 +44,51 @@ function renderObject(feature){
     }
     return model;
 }
+function initRenderOnUser(position){
+    const compoundEntity = document.createElement("a-entity");
+    compoundEntity.setAttribute('gps-new-entity-place', {
+        latitude: position.latitude+0.01,
+        longitude: position.longitude
+    });
+    const model = document.createElement('a-entity');
+    model.setAttribute('gltf-model','#church');
+    model.setAttribute("position", {
+        x : 0,
+        y : 5,
+        z: 0
+    } );
+    model.setAttribute("scale", {
+        x: 10,
+        y: 10,
+        z: 10
+    });
+    model.addEventListener('loaded', () => {
+        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+    });
+    const text = document.createElement("a-text");
+    const textScale = 100;
+    text.setAttribute("look-at", "[gps-new-camera]");
+    text.setAttribute("scale", {
+        x: textScale,
+        y: textScale,
+        z: textScale
+    });
+    text.setAttribute("value", "Trigger Example");
+    text.setAttribute("align", "center");
+    compoundEntity.appendChild(model);
+    compoundEntity.appendChild(text);
+}
 window.onload = () => {
     let downloaded = false;
+    let initRender = false;
 
     const el = document.querySelector("[gps-new-camera]");
 
     el.addEventListener("gps-camera-update-position", async(e) => {
+        if (!initRender){
+            initRenderOnUser(e.detail.position);
+            initRender=true;
+        }
         if(!downloaded) {
             const west = e.detail.position.longitude - 0.03,
                   east = e.detail.position.longitude + 0.03,
