@@ -1,6 +1,6 @@
 function getObjByType(featureType){
     if(featureType=="cafe"){
-        return "./assets/model/coffee/scene.gltf'"
+        return "#coffee"
     }else{
         return "None"
     }
@@ -27,7 +27,7 @@ function renderObject(feature){
         model.setAttribute('gltf-model',modelURL);
         model.setAttribute('rotation','0 180 0');
         model.setAttribute('animation-mixer','');
-        model.setAttribute('scale','20 20 20');
+        // model.setAttribute('scale','20 20 20');
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
         });
