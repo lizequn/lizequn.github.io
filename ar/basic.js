@@ -8,7 +8,7 @@ function getObjByType(featureType){
 function renderObject(feature){
     let modelURL = getObjByType(feature.properties.featureType);
     let model;
-    if(modelURL==="None"){
+    if(modelURL=="None"){
         model = document.createElement("a-box");
         model.setAttribute("scale", {
             x: 20,
