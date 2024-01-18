@@ -28,6 +28,9 @@ function renderObject(feature){
         model.setAttribute('rotation','0 180 0');
         model.setAttribute('animation-mixer','');
         model.setAttribute('scale','20 20 20');
+        model.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+        });
     }
     return model;
 }
@@ -38,10 +41,10 @@ window.onload = () => {
 
     el.addEventListener("gps-camera-update-position", async(e) => {
         if(!downloaded) {
-            const west = e.detail.position.longitude - 0.01,
-                  east = e.detail.position.longitude + 0.01,
-                  south = e.detail.position.latitude - 0.01;
-                  north = e.detail.position.latitude + 0.01;
+            const west = e.detail.position.longitude - 0.03,
+                  east = e.detail.position.longitude + 0.03,
+                  south = e.detail.position.latitude - 0.03;
+                  north = e.detail.position.latitude + 0.03;
             console.log(`${west} ${south} ${east} ${north}`);
             const response = await fetch(`https://hikar.org/webapp/map?bbox=${west},${south},${east},${north}&layers=poi&outProj=4326`);
             const pois = await response.json();
