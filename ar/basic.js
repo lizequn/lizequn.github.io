@@ -77,6 +77,7 @@ function initRenderOnUser(position){
     text.setAttribute("align", "center");
     compoundEntity.appendChild(model);
     compoundEntity.appendChild(text);
+    return compoundEntity;
 }
 window.onload = () => {
     let downloaded = false;
@@ -86,7 +87,8 @@ window.onload = () => {
 
     el.addEventListener("gps-camera-update-position", async(e) => {
         if (!initRender){
-            initRenderOnUser(e.detail.position);
+            compoundEntity = initRenderOnUser(e.detail.position);
+            document.querySelector("a-scene").appendChild(compoundEntity);
             initRender=true;
         }
         if(!downloaded) {
