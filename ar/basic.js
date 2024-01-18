@@ -7,6 +7,7 @@ function getObjByType(featureType){
 }
 function renderObject(feature){
     let modelURL = getObjByType(feature.properties.featureType);
+    console.log(modelURL);
     let model;
     if(modelURL=="None"){
         model = document.createElement("a-box");
@@ -46,27 +47,25 @@ window.onload = () => {
             const pois = await response.json();
             console.log(pois)
             pois.features.forEach ( feature => {
-                if (feature.properties.name.length <=10){
-                    const compoundEntity = document.createElement("a-entity");
-                    compoundEntity.setAttribute('gps-new-entity-place', {
-                        latitude: feature.geometry.coordinates[1],
-                        longitude: feature.geometry.coordinates[0]
-                    });
-                    const object = renderObject(feature);
-                    const text = document.createElement("a-text");
-                    const textScale = 100;
-                    text.setAttribute("look-at", "[gps-new-camera]");
-                    text.setAttribute("scale", {
-                        x: textScale,
-                        y: textScale,
-                        z: textScale
-                    });
-                    text.setAttribute("value", feature.properties.name.replace(/ *\([^)]*\) */g, ""));
-                    text.setAttribute("align", "center");
-                    compoundEntity.appendChild(object);
-                    compoundEntity.appendChild(text);
-                    document.querySelector("a-scene").appendChild(compoundEntity);
-                }
+                const compoundEntity = document.createElement("a-entity");
+                compoundEntity.setAttribute('gps-new-entity-place', {
+                    latitude: feature.geometry.coordinates[1],
+                    longitude: feature.geometry.coordinates[0]
+                });
+                const object = renderObject(feature);
+                const text = document.createElement("a-text");
+                const textScale = 100;
+                text.setAttribute("look-at", "[gps-new-camera]");
+                text.setAttribute("scale", {
+                    x: textScale,
+                    y: textScale,
+                    z: textScale
+                });
+                text.setAttribute("value", feature.properties.name.replace(/ *\([^)]*\) */g, ""));
+                text.setAttribute("align", "center");
+                compoundEntity.appendChild(object);
+                compoundEntity.appendChild(text);
+                document.querySelector("a-scene").appendChild(compoundEntity);
             });
         }
         downloaded = true;
