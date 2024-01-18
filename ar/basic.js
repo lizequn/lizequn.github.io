@@ -27,13 +27,13 @@ function renderObject(feature){
         model.setAttribute('gltf-model',modelURL);
         model.setAttribute("position", {
             x : 0,
-            y : 20,
+            y : 5,
             z: 0
         } );
         model.setAttribute("scale", {
-            x: 20,
-            y: 20,
-            z: 20
+            x: 100,
+            y: 100,
+            z: 100
         });
         // model.setAttribute('rotation','0 180 0');
         // model.setAttribute('animation-mixer','');
