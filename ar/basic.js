@@ -25,8 +25,18 @@ function renderObject(feature){
     }else{
         model = document.createElement('a-entity');
         model.setAttribute('gltf-model',modelURL);
-        model.setAttribute('rotation','0 180 0');
-        model.setAttribute('animation-mixer','');
+        model.setAttribute("position", {
+            x : 0,
+            y : 20,
+            z: 0
+        } );
+        model.setAttribute("scale", {
+            x: 20,
+            y: 20,
+            z: 20
+        });
+        // model.setAttribute('rotation','0 180 0');
+        // model.setAttribute('animation-mixer','');
         // model.setAttribute('scale','20 20 20');
         model.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
