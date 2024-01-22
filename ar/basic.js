@@ -68,7 +68,8 @@ function initRenderOnUser(position){
         z: 10
     });
     model.addEventListener('loaded', () => {
-        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
+        window.dispatchEvent(new CustomEvent('trackstart'));
     });
     const text = document.createElement("a-text");
     const textScale = 100;
@@ -94,10 +95,15 @@ function initTriggerMarker(lat,long){
     const model = document.createElement('a-box');
     model.setAttribute('material', { color: 'red' } );
     model.setAttribute("scale", {
-        x: 20,
-        y: 20,
-        z: 20
+        x: 10,
+        y: 10,
+        z: 10
     });
+    model.setAttribute("position", {
+        x : 0,
+        y : 20,
+        z: 0
+    } );
     const text = document.createElement("a-text");
     const textScale = 100;
     text.setAttribute("look-at", "[gps-new-camera]");
@@ -129,9 +135,7 @@ window.onload = () => {
             models.push(compoundEntity);
             document.querySelector("a-scene").appendChild(compoundEntity);
             initRender=true;
-            model.addEventListener('loaded', () => {
-                window.dispatchEvent(new CustomEvent('trackstart'))
-            });
+            
         }
         if(attractions) {
             const west = e.detail.position.longitude - 0.03,
