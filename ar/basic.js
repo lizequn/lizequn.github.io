@@ -117,7 +117,7 @@ function initTriggerMarker(lat,long){
     compoundEntity.appendChild(model);
     compoundEntity.appendChild(text);
     console.log("marker init");
-    window.addEventListener('load', () => {
+    //window.addEventListener('load', () => {
         compoundEntity.addEventListener('trackstart', () => {
             console.log("tractstart");
             const camera = document.querySelector('[gps-new-camera]');
@@ -138,7 +138,7 @@ function initTriggerMarker(lat,long){
         compoundEntity.addEventListener('trackstop', () => {
             clearInterval(check);
         });
-    });
+    //});
     return compoundEntity;
 }
 
