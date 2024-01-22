@@ -124,15 +124,18 @@ function initTriggerMarker(lat,long){
             let cameraPosition = camera.object3D.position;
             let markerPosition = compoundEntity.object3D.position;
             let distance = cameraPosition.distanceTo(markerPosition)
-            console.log(distance);
             check = setInterval(() => {
                 cameraPosition = camera.object3D.position;
                 markerPosition = compoundEntity.object3D.position;
                 distance = cameraPosition.distanceTo(markerPosition)
-
+                if(distance<=10){
+                    models[0].setAttribute("visible","true");
+                }else{
+                    models[0].setAttribute("visible","false");
+                }
                 // do what you want with the distance:
                 console.log(distance);
-            }, 100);
+            }, 1000);
         });
 
         compoundEntity.addEventListener('trackstop', () => {
