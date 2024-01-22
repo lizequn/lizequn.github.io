@@ -116,8 +116,9 @@ function initTriggerMarker(lat,long){
     text.setAttribute("align", "center");
     compoundEntity.appendChild(model);
     compoundEntity.appendChild(text);
-    
+    console.log("marker init");
     compoundEntity.addEventListener('trackstart', () => {
+        console.log("tractstart");
         const camera = document.querySelector('[gps-new-camera]');
         let cameraPosition = camera.object3D.position;
         let markerPosition = compoundEntity.object3D.position;
@@ -150,6 +151,7 @@ window.onload = () => {
         compoundEntity = initTriggerMarker(marker_position[0],marker_position[1])
         document.querySelector("a-scene").appendChild(compoundEntity);
         initTrigger=true;
+        window.dispatchEvent(new CustomEvent('trackstart'));
     }
     el.addEventListener("gps-camera-update-position", async(e) => {
         if (!initRender){
@@ -157,7 +159,6 @@ window.onload = () => {
             models.push(compoundEntity);
             document.querySelector("a-scene").appendChild(compoundEntity);
             initRender=true;
-            
         }
         if(attractions) {
             const west = e.detail.position.longitude - 0.03,
@@ -192,5 +193,5 @@ window.onload = () => {
             attractions = true;
         } 
     });
-    window.dispatchEvent(new CustomEvent('trackstart'));
+    
 };
