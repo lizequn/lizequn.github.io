@@ -117,28 +117,28 @@ function initTriggerMarker(lat,long){
     compoundEntity.appendChild(model);
     compoundEntity.appendChild(text);
     console.log("marker init");
-    compoundEntity.addEventListener('trackstart', () => {
-        console.log("tractstart");
-        const camera = document.querySelector('[gps-new-camera]');
-        let cameraPosition = camera.object3D.position;
-        let markerPosition = compoundEntity.object3D.position;
-        let distance = cameraPosition.distanceTo(markerPosition)
-        console.log(distance);
-        check = setInterval(() => {
-            cameraPosition = camera.object3D.position;
-            markerPosition = compoundEntity.object3D.position;
-            distance = cameraPosition.distanceTo(markerPosition)
-
-            // do what you want with the distance:
+    window.addEventListener('load', () => {
+        compoundEntity.addEventListener('trackstart', () => {
+            console.log("tractstart");
+            const camera = document.querySelector('[gps-new-camera]');
+            let cameraPosition = camera.object3D.position;
+            let markerPosition = compoundEntity.object3D.position;
+            let distance = cameraPosition.distanceTo(markerPosition)
             console.log(distance);
-        }, 100);
+            check = setInterval(() => {
+                cameraPosition = camera.object3D.position;
+                markerPosition = compoundEntity.object3D.position;
+                distance = cameraPosition.distanceTo(markerPosition)
+
+                // do what you want with the distance:
+                console.log(distance);
+            }, 100);
+        });
+
+        compoundEntity.addEventListener('trackstop', () => {
+            clearInterval(check);
+        });
     });
-
-    compoundEntity.addEventListener('trackstop', () => {
-        clearInterval(check);
-    });
-
-
     return compoundEntity;
 }
 
