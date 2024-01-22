@@ -1,3 +1,6 @@
+models=[]
+//lat,long
+marker_position = [50.71700,-1.98265]
 function getObjByType(featureType){
     if(featureType=="cafe"){
         return "#coffee"
@@ -50,6 +53,8 @@ function initRenderOnUser(position){
         latitude: position.latitude+0.01,
         longitude: position.longitude
     });
+    compoundEntity.setAttribute("visible","false");
+    compoundEntity.setAttribute("model-id","church");
     const model = document.createElement('a-entity');
     model.setAttribute('gltf-model','#church');
     model.setAttribute("position", {
@@ -79,19 +84,56 @@ function initRenderOnUser(position){
     compoundEntity.appendChild(text);
     return compoundEntity;
 }
+function initTriggerMarker(lat,long){
+    const compoundEntity = document.createElement("a-entity");
+    compoundEntity.setAttribute('gps-new-entity-place', {
+        latitude: lat,
+        longitude: long
+    });
+    compoundEntity.setAttribute("model-id","marker");
+    const model = document.createElement('a-box');
+    model.setAttribute('material', { color: 'red' } );
+    model.setAttribute("scale", {
+        x: 20,
+        y: 20,
+        z: 20
+    });
+    const text = document.createElement("a-text");
+    const textScale = 100;
+    text.setAttribute("look-at", "[gps-new-camera]");
+    text.setAttribute("scale", {
+        x: textScale,
+        y: textScale,
+        z: textScale
+    });
+    text.setAttribute("value", "Trigger Marker");
+    text.setAttribute("align", "center");
+    compoundEntity.appendChild(model);
+    compoundEntity.appendChild(text);
+    return compoundEntity;
+}
+
 window.onload = () => {
-    let downloaded = false;
+    let attractions = false;
     let initRender = false;
-
+    let initTrigger=false;
     const el = document.querySelector("[gps-new-camera]");
-
+    if (!initTrigger){
+        compoundEntity = initTriggerMarker(marker_position[0],marker_position[1])
+        document.querySelector("a-scene").appendChild(compoundEntity);
+        initTrigger=true;
+    }
     el.addEventListener("gps-camera-update-position", async(e) => {
         if (!initRender){
             compoundEntity = initRenderOnUser(e.detail.position);
+            models.push(compoundEntity);
             document.querySelector("a-scene").appendChild(compoundEntity);
             initRender=true;
+            model.addEventListener('loaded', () => {
+                window.dispatchEvent(new CustomEvent('trackstart'))
+            });
         }
-        if(!downloaded) {
+        if(attractions) {
             const west = e.detail.position.longitude - 0.03,
                   east = e.detail.position.longitude + 0.03,
                   south = e.detail.position.latitude - 0.03;
@@ -121,7 +163,33 @@ window.onload = () => {
                 compoundEntity.appendChild(text);
                 document.querySelector("a-scene").appendChild(compoundEntity);
             });
-        }
-        downloaded = true;
+            attractions = true;
+        } 
     });
+    const camera = document.querySelector('[gps-new-camera]');
+    const marker = document.querySelector("a-entity[model-id='marker']");
+    let check;
+
+    marker.addEventListener('trackstart', () => {
+        let cameraPosition = camera.object3D.position;
+        let markerPosition = marker.object3D.position;
+        let distance = cameraPosition.distanceTo(markerPosition)
+
+        check = setInterval(() => {
+            cameraPosition = camera.object3D.position;
+            markerPosition = marker.object3D.position;
+            distance = cameraPosition.distanceTo(markerPosition)
+
+            // do what you want with the distance:
+            console.log(distance);
+        }, 100);
+    });
+
+    marker.addEventListener('trackstop', () => {
+        clearInterval(check);
+    })
 };
+
+window.addEventListener('load', () => {
+
+});
