@@ -178,7 +178,7 @@ window.onload = () => {
         let cameraPosition = camera.object3D.position;
         let markerPosition = marker.object3D.position;
         let distance = cameraPosition.distanceTo(markerPosition)
-
+        console.log(distance);
         check = setInterval(() => {
             cameraPosition = camera.object3D.position;
             markerPosition = marker.object3D.position;
@@ -191,7 +191,8 @@ window.onload = () => {
 
     marker.addEventListener('trackstop', () => {
         clearInterval(check);
-    })
+    });
+    window.dispatchEvent(new CustomEvent('trackstart'));
 };
 
 window.addEventListener('load', () => {
