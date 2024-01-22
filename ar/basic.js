@@ -1,6 +1,6 @@
 models=[]
 //lat,long
-marker_position = [50.71700,-1.98265]
+marker_position = [50.71269,-1.9874]
 function getObjByType(featureType){
     if(featureType=="cafe"){
         return "#coffee"
@@ -69,7 +69,7 @@ function initRenderOnUser(position){
     });
     model.addEventListener('loaded', () => {
         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
-        window.dispatchEvent(new CustomEvent('trackstart'));
+        // window.dispatchEvent(new CustomEvent('trackstart'));
     });
     const text = document.createElement("a-text");
     const textScale = 100;
@@ -151,7 +151,7 @@ window.onload = () => {
         compoundEntity = initTriggerMarker(marker_position[0],marker_position[1])
         document.querySelector("a-scene").appendChild(compoundEntity);
         initTrigger=true;
-        window.dispatchEvent(new CustomEvent('trackstart'));
+        compoundEntity.dispatchEvent(new CustomEvent('trackstart'));
     }
     el.addEventListener("gps-camera-update-position", async(e) => {
         if (!initRender){
