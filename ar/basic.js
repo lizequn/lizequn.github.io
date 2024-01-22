@@ -116,6 +116,28 @@ function initTriggerMarker(lat,long){
     text.setAttribute("align", "center");
     compoundEntity.appendChild(model);
     compoundEntity.appendChild(text);
+    
+    compoundEntity.addEventListener('trackstart', () => {
+        const camera = document.querySelector('[gps-new-camera]');
+        let cameraPosition = camera.object3D.position;
+        let markerPosition = compoundEntity.object3D.position;
+        let distance = cameraPosition.distanceTo(markerPosition)
+        console.log(distance);
+        check = setInterval(() => {
+            cameraPosition = camera.object3D.position;
+            markerPosition = compoundEntity.object3D.position;
+            distance = cameraPosition.distanceTo(markerPosition)
+
+            // do what you want with the distance:
+            console.log(distance);
+        }, 100);
+    });
+
+    compoundEntity.addEventListener('trackstop', () => {
+        clearInterval(check);
+    });
+
+
     return compoundEntity;
 }
 
@@ -170,31 +192,5 @@ window.onload = () => {
             attractions = true;
         } 
     });
-    const camera = document.querySelector('[gps-new-camera]');
-    const marker = document.querySelector("a-entity[model-id='marker']");
-    let check;
-
-    marker.addEventListener('trackstart', () => {
-        let cameraPosition = camera.object3D.position;
-        let markerPosition = marker.object3D.position;
-        let distance = cameraPosition.distanceTo(markerPosition)
-        console.log(distance);
-        check = setInterval(() => {
-            cameraPosition = camera.object3D.position;
-            markerPosition = marker.object3D.position;
-            distance = cameraPosition.distanceTo(markerPosition)
-
-            // do what you want with the distance:
-            console.log(distance);
-        }, 100);
-    });
-
-    marker.addEventListener('trackstop', () => {
-        clearInterval(check);
-    });
     window.dispatchEvent(new CustomEvent('trackstart'));
 };
-
-window.addEventListener('load', () => {
-
-});
