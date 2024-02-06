@@ -1,8 +1,8 @@
 models=[]
 markers=[]
 //lat,long
-// marker_position = [50.71269,-1.9874]
-marker_position = [36.71144,-4.44416]
+marker_position = [50.74325,-1.89793]
+// marker_position = [36.71144,-4.44416]
 
 function initRenderOnLocation(position){
     const compoundEntity = document.createElement("a-entity");
@@ -16,20 +16,20 @@ function initRenderOnLocation(position){
     model.setAttribute('gltf-model','#church');
     model.setAttribute("position", {
         x : 0,
-        y : 2,
+        y : 0,
         z: 0
     } );
     model.setAttribute("scale", {
-        x: 10,
-        y: 10,
-        z: 10
+        x: 5,
+        y: 5,
+        z: 5
     });
     model.addEventListener('loaded', () => {
         window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
         // window.dispatchEvent(new CustomEvent('trackstart'));
     });
     const text = document.createElement("a-text");
-    const textScale = 50;
+    const textScale = 10;
     text.setAttribute("look-at", "[gps-new-camera]");
     text.setAttribute("scale", {
         x: textScale,
