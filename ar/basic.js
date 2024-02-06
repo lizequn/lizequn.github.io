@@ -114,14 +114,14 @@ window.onload = () => {
         initTrigger=true;
         compoundEntity.dispatchEvent(new CustomEvent('trackstart'));
     }
-    if (!initRender){
-        compoundEntity = initRenderOnLocation(e.detail.position);
-        models.push(compoundEntity);
-        document.querySelector("a-scene").appendChild(compoundEntity);
-        initRender=true;
-    }
+    
     el.addEventListener("gps-camera-update-position", async(e) => {
-        
+        if (!initRender){
+            compoundEntity = initRenderOnLocation(e.detail.position);
+            models.push(compoundEntity);
+            document.querySelector("a-scene").appendChild(compoundEntity);
+            initRender=true;
+        }
     });
     
 };
