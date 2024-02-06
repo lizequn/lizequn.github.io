@@ -1,4 +1,5 @@
 models=[]
+markers=[]
 //lat,long
 // marker_position = [50.71269,-1.9874]
 marker_position = [36.71144,-4.44416]
@@ -15,7 +16,7 @@ function initRenderOnLocation(position){
     model.setAttribute('gltf-model','#church');
     model.setAttribute("position", {
         x : 0,
-        y : 5,
+        y : 2,
         z: 0
     } );
     model.setAttribute("scale", {
@@ -57,11 +58,11 @@ function initTriggerMarker(lat,long){
     });
     model.setAttribute("position", {
         x : 0,
-        y : 10,
+        y : 5,
         z: 0
     } );
     const text = document.createElement("a-text");
-    const textScale = 50;
+    const textScale = 25;
     text.setAttribute("look-at", "[gps-new-camera]");
     text.setAttribute("scale", {
         x: textScale,
@@ -83,10 +84,12 @@ function initTriggerMarker(lat,long){
             cameraPosition = camera.object3D.position;
             markerPosition = compoundEntity.object3D.position;
             distance = cameraPosition.distanceTo(markerPosition)
-            if(distance<=10){
+            if(distance<=20){
                 models[0].setAttribute("visible","true");
+                markers[0].setAttribute("visible","false");
             }else{
                 models[0].setAttribute("visible","false");
+                markers[0].setAttribute("visible","true");
             }
             // do what you want with the distance:
             console.log(distance);
@@ -105,18 +108,20 @@ window.onload = () => {
     let initTrigger=false;
     const el = document.querySelector("[gps-new-camera]");
     if (!initTrigger){
-        compoundEntity = initTriggerMarker(marker_position[0],marker_position[1])
+        compoundEntity = initTriggerMarker(marker_position[0],marker_position[1]);
+        markers.push(compoundEntity);
         document.querySelector("a-scene").appendChild(compoundEntity);
         initTrigger=true;
         compoundEntity.dispatchEvent(new CustomEvent('trackstart'));
     }
+    if (!initRender){
+        compoundEntity = initRenderOnLocation(e.detail.position);
+        models.push(compoundEntity);
+        document.querySelector("a-scene").appendChild(compoundEntity);
+        initRender=true;
+    }
     el.addEventListener("gps-camera-update-position", async(e) => {
-        if (!initRender){
-            compoundEntity = initRenderOnLocation(e.detail.position);
-            models.push(compoundEntity);
-            document.querySelector("a-scene").appendChild(compoundEntity);
-            initRender=true;
-        }
+        
     });
     
 };
