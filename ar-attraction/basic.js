@@ -46,10 +46,10 @@ window.onload = () => {
     const el = document.querySelector("[gps-new-camera]");
     el.addEventListener("gps-camera-update-position", async(e) => {
         if(!attractions) {
-            const west = e.detail.position.longitude - 0.03,
-                  east = e.detail.position.longitude + 0.03,
-                  south = e.detail.position.latitude - 0.03;
-                  north = e.detail.position.latitude + 0.03;
+            const west = e.detail.position.longitude - 0.01,
+                  east = e.detail.position.longitude + 0.01,
+                  south = e.detail.position.latitude - 0.01;
+                  north = e.detail.position.latitude + 0.01;
             console.log(`${west} ${south} ${east} ${north}`);
             const response = await fetch(`https://hikar.org/webapp/map?bbox=${west},${south},${east},${north}&layers=poi&outProj=4326`);
             const pois = await response.json();
@@ -62,7 +62,7 @@ window.onload = () => {
                 });
                 const object = renderObject(feature);
                 const text = document.createElement("a-text");
-                const textScale = 50;
+                const textScale = 100;
                 text.setAttribute("look-at", "[gps-new-camera]");
                 text.setAttribute("scale", {
                     x: textScale,
