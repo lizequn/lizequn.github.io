@@ -2,7 +2,7 @@ models=[]
 markers=[]
 //lat,long
 // marker_position = [50.74325,-1.89793]
-marker_position = [36.71853,-4.42941]
+marker_position = [36.71851,-4.42937]
 
 function initRenderOnLocation(lat,long){
     const compoundEntity = document.createElement("a-entity");
