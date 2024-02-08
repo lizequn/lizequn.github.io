@@ -4,11 +4,11 @@ markers=[]
 // marker_position = [50.74325,-1.89793]
 marker_position = [36.71853,-4.42941]
 
-function initRenderOnLocation(position){
+function initRenderOnLocation(lat,long){
     const compoundEntity = document.createElement("a-entity");
     compoundEntity.setAttribute('gps-new-entity-place', {
-        latitude: position.latitude,
-        longitude: position.longitude
+        latitude: lat,
+        longitude: long
     });
     compoundEntity.setAttribute("visible","false");
     compoundEntity.setAttribute("model-id","church");
@@ -107,6 +107,12 @@ window.onload = () => {
     let initRender = false;
     let initTrigger=false;
     const el = document.querySelector("[gps-new-camera]");
+    if (!initRender){
+        compoundEntity = initRenderOnLocation(e.detail.position);
+        models.push(compoundEntity);
+        document.querySelector("a-scene").appendChild(compoundEntity);
+        initRender=true;
+    }
     if (!initTrigger){
         compoundEntity = initTriggerMarker(marker_position[0],marker_position[1]);
         markers.push(compoundEntity);
@@ -116,12 +122,7 @@ window.onload = () => {
     }
     
     el.addEventListener("gps-camera-update-position", async(e) => {
-        if (!initRender){
-            compoundEntity = initRenderOnLocation(e.detail.position);
-            models.push(compoundEntity);
-            document.querySelector("a-scene").appendChild(compoundEntity);
-            initRender=true;
-        }
+        
     });
     
 };
