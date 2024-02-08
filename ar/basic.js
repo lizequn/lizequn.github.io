@@ -1,8 +1,8 @@
 models=[]
 markers=[]
 //lat,long
-marker_position = [50.74325,-1.89793]
-// marker_position = [36.71144,-4.44416]
+// marker_position = [50.74325,-1.89793]
+marker_position = [36.71853,-4.42941]
 
 function initRenderOnLocation(position){
     const compoundEntity = document.createElement("a-entity");
@@ -29,7 +29,7 @@ function initRenderOnLocation(position){
         // window.dispatchEvent(new CustomEvent('trackstart'));
     });
     const text = document.createElement("a-text");
-    const textScale = 10;
+    const textScale = 5;
     text.setAttribute("look-at", "[gps-new-camera]");
     text.setAttribute("scale", {
         x: textScale,
@@ -58,11 +58,11 @@ function initTriggerMarker(lat,long){
     });
     model.setAttribute("position", {
         x : 0,
-        y : 5,
+        y : 2,
         z: 0
     } );
     const text = document.createElement("a-text");
-    const textScale = 25;
+    const textScale = 10;
     text.setAttribute("look-at", "[gps-new-camera]");
     text.setAttribute("scale", {
         x: textScale,
