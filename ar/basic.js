@@ -108,7 +108,7 @@ window.onload = () => {
     let initTrigger=false;
     const el = document.querySelector("[gps-new-camera]");
     if (!initRender){
-        compoundEntity = initRenderOnLocation(e.detail.position);
+        compoundEntity = initRenderOnLocation(marker_position[0],marker_position[1]);
         models.push(compoundEntity);
         document.querySelector("a-scene").appendChild(compoundEntity);
         initRender=true;
