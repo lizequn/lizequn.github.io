@@ -52,13 +52,13 @@ function initTriggerMarker(lat,long){
     const model = document.createElement('a-box');
     model.setAttribute('material', { color: 'red' } );
     model.setAttribute("scale", {
-        x: 5,
-        y: 5,
-        z: 5
+        x: 2,
+        y: 2,
+        z: 2
     });
     model.setAttribute("position", {
         x : 0,
-        y : 2,
+        y : 4,
         z: 0
     } );
     const text = document.createElement("a-text");
